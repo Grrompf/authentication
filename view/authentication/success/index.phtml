@@ -1,0 +1,19 @@
+<!-- //module/Authentication/view/auth/success/index.phtml -->
+
+<?php
+$this->plugin('translate')->setTranslatorTextDomain('Auth'); 
+
+if ($user = $this->identity()) {
+        echo $this->translate('Logged in as ') . 
+             $this->escapeHtml($user->getUsername());?>
+
+  <a href="<?php echo $this->url('login/process', 
+              array('action'=>'logout')); ?>">LogOut</a>
+<?php
+        } 
+else {
+        echo $this->translate('Not logged in');
+    }
+?>    
+
+
